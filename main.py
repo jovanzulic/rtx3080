@@ -1,14 +1,17 @@
-from services import make_call, scraper
+from services import console_printer, phone_caller, scraper
+import time
+
+check_frequency = 30
 
 
 def main():
-    product_out_of_stock = True
-
-    while product_out_of_stock:
-        product_out_of_stock = scraper.scrape()
-
-    print("Product in stock!")
-    make_call.make_call()
+    while True:
+        if scraper.scrape():
+            console_printer.print_out_of_stock()
+        else:
+            console_printer.print_in_stock()
+            phone_caller.make_call()
+        time.sleep(check_frequency)
 
 
 main()
