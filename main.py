@@ -1,4 +1,4 @@
-from services import console_printer, phone_caller, scraper
+from services import console_printer, notifier, scraper
 import time
 
 check_frequency = 10
@@ -10,7 +10,8 @@ def main():
             console_printer.print_out_of_stock()
         else:
             console_printer.print_in_stock()
-            phone_caller.make_call()
+            notifier.notify_by_sms()
+            # notifier.notify_by_phone()
         time.sleep(check_frequency)
 
 

@@ -1,10 +1,7 @@
 from twilio.rest import Client
 import os
-# from dotenv import load_dotenv
 
 # Your Account Sid and Auth Token from twilio.com/console
-
-# load_dotenv()
 
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
@@ -13,10 +10,19 @@ from_phone = os.getenv('TWILIO_ACCOUNT_PHONE_NUMBER')
 url = 'http://demo.twilio.com/docs/voice.xml'
 
 
-def make_call():
+def notify_by_phone():
     client = Client(account_sid, auth_token)
     call = client.calls.create(
         url=url,
         to=to_phone,
         from_=from_phone
+    )
+
+
+def notify_by_sms():
+    client = Client(account_sid, auth_token)
+    message = client.messages.create(
+        body="Product in stock!",
+        to=to_phone,
+        from_=from_phone,
     )
