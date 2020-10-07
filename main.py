@@ -1,7 +1,7 @@
 from services import console_printer, phone_caller, scraper
 import time
 
-check_frequency = 30
+check_frequency = 10
 
 
 def main():

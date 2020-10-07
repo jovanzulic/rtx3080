@@ -1,10 +1,10 @@
 from twilio.rest import Client
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 # Your Account Sid and Auth Token from twilio.com/console
 
-load_dotenv()
+# load_dotenv()
 
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
