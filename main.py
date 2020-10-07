@@ -1,5 +1,4 @@
-import scraper
-import make_call
+from services import make_call, scraper
 
 
 def main():
