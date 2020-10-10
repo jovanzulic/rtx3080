@@ -7,7 +7,7 @@ def get_html(url):
     return page.content.decode()
 
 
-def check_if_product_in_stock(store, stores):
-    indicator = stores[store]['indicator']
-    url = stores[store]['url']
+def check_if_product_in_stock(product, products):
+    indicator = products[product]['indicator']
+    url = products[product]['url']
     return indicator in get_html(url)

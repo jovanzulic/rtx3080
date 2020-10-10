@@ -1,13 +1,13 @@
 import datetime
 
 
-def print_out_of_stock(store):
-    print(store, " - Product out of stock: ", datetime.datetime.now())
+def print_out_of_stock(product):
+    print(datetime.datetime.now(), "| Product out of stock |", product)
 
 
-def print_in_stock(store):
-    print("*** ", store, " - Product in stock! ", datetime.datetime.now())
+def print_in_stock(product, stores):
+    print(datetime.datetime.now(), "| Product in stock!!!! |", product, stores[product]['url'])
 
 
-def print_error(store):
-    print("*** ERROR during: ", store)
+def print_error(product):
+    print(datetime.datetime.now(), "Error processing:", product, "*****")
