@@ -15,4 +15,5 @@ def main():
         time.sleep(check_frequency)
 
 
-main()
+if __name__ == '__main__':
+    main()
