@@ -1,8 +1,8 @@
-newegg:
+newegg_ASUS:
   url: https://www.newegg.com/asus-geforce-rtx-3080-tuf-rtx3080-10g-gaming/p/N82E16814126453?Item=N82E16814126453
   indicator: <button class="btn btn-primary btn-wide" title="Add ASUS TUF Gaming NVIDIA GeForce RTX 3080 TUF-RTX3080-10G-GAMING Video Card to cart">Add to cart <i class="fas fa-caret-right"></i></button>
 
-bestbuy:
+bestbuy_FE:
   url: https://www.bestbuy.com/site/nvidia-geforce-rtx-3080-10gb-gddr6x-pci-express-4-0-graphics-card-titanium-and-black/6429440.p?skuId=6429440
   indicator: </svg>Add to Cart</button>
 

@@ -19,9 +19,9 @@ def notify_by_phone():
     )
 
 
-def notify_by_sms(store):
+def notify_by_sms(product, products):
     client = Client(account_sid, auth_token)
-    body = store + " - Product in stock!"
+    body = product + " in stock! " + products[product]['url']
     message = client.messages.create(
         body=body,
         to=to_phone,
