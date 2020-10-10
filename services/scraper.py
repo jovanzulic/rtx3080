@@ -1,18 +1,13 @@
 import requests
 
-url_for_rtx_3080 = 'https://www.newegg.com/asus-geforce-rtx-3080-tuf-rtx3080-10g-gaming/p/N82E16814126453?Item=N82E16814126453'
-out_of_stock_warning = """<div class="product-inventory"><strong><i class="fas fa-exclamation-triangle"></i> OUT OF STOCK.</strong></div>"""
 
-
-def get_html_from_newegg():
-    page = requests.get(url_for_rtx_3080)
+def get_html(url):
+    headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}
+    page = requests.get(url, headers=headers)
     return page.content.decode()
 
 
-def check_if_product_out_of_stock(html):
-    return out_of_stock_warning in html
-
-
-def scrape():
-    html = get_html_from_newegg()
-    return check_if_product_out_of_stock(html)
+def check_if_product_in_stock(store, stores):
+    indicator = stores[store]['indicator']
+    url = stores[store]['url']
+    return indicator in get_html(url)
