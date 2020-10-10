@@ -1,17 +1,22 @@
-from services import console_printer, notifier, scraper
+from services import console_printer, notifier, scraper, yaml_reader
 import time
 
 check_frequency = 10
 
 
 def main():
+
+    stores = yaml_reader.get_data()
+
     while True:
-        if scraper.scrape():
-            console_printer.print_out_of_stock()
-        else:
-            console_printer.print_in_stock()
-            notifier.notify_by_sms()
-            # notifier.notify_by_phone()
+        for store in stores:
+            if scraper.check_if_product_in_stock(store, stores):
+                console_printer.print_in_stock(store)
+                notifier.notify_by_sms(store)
+                # notifier.notify_by_phone()
+            else:
+                console_printer.print_out_of_stock(store)
+
         time.sleep(check_frequency)
 
 
