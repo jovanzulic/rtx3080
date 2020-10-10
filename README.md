@@ -1,7 +1,5 @@
-Simple script that checks Newegg & Bestbuy for the RTX3080.
+Simple app that periodically checks Newegg & Bestbuy for whether the RTX3080 is in stock.
 
-It will periodically check if the "OUT OF STOCK" flag is present.
-
-If not, then it will use Twilio to call my phone.
+If so,  it will use Twilio to call/sms my phone.
 
 Entrypoint: main.py
